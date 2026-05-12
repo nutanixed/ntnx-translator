@@ -1,0 +1,28 @@
+{
+  "name": "webpage",
+  "version": "1.0.0",
+  "description": "Nutanix VMware translator MVP",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend run start",
+    "test": "npm --prefix backend run test",
+    "terms:migrate": "node scripts/migrate-markdown-to-source.js",
+    "terms:compile": "node scripts/compile-terms.js",
+    "terms:check": "node scripts/compile-terms.js --check",
+    "terms:markdown": "node scripts/generate-markdown-from-source.js"
+  },
+  "keywords": [
+    "nutanix",
+    "vmware",
+    "translator"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

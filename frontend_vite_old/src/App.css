@@ -1,0 +1,153 @@
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.hero {
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  color: #7a39fb;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.lede {
+  color: #4a4a4a;
+}
+
+.searchCard {
+  background: #ffffff;
+  border: 1px solid #b59bc6;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.uploadCard {
+  background: #ffffff;
+  border: 1px solid #b59bc6;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.uploadCard h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.uploadForm {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 0.75rem;
+}
+
+.searchTop {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 0.75rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #b59bc6;
+  background: #ffffff;
+  color: #121212;
+}
+
+.uploadForm button {
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #522e91;
+  background: #7a39fb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.uploadForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 0.75rem;
+  color: #4a4a4a;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 1rem;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 66vh;
+  overflow: auto;
+}
+
+.result {
+  text-align: left;
+  border: 1px solid #b59bc6;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.result.active {
+  border-color: #7a39fb;
+}
+
+.badge {
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.badge.direct {
+  background: #ece3ff;
+  color: #2d1e45;
+}
+
+.badge.partial,
+.badge.closest {
+  background: #f4ecff;
+  color: #522e91;
+}
+
+.badge.none {
+  background: #fbe9ff;
+  color: #2d1e45;
+}
+
+.details {
+  background: #ffffff;
+  border: 1px solid #b59bc6;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.placeholder {
+  color: #4a4a4a;
+}
+
+@media (max-width: 900px) {
+  .uploadForm,
+  .searchTop,
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

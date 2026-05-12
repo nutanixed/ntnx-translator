@@ -1,0 +1,16 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "description": "Shared schema for translator",
+  "main": "src/schema.js",
+  "scripts": {
+    "test": "node -e \"console.log('shared: no tests')\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}

@@ -1,0 +1,40 @@
+name: Release Draft (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_ref:
+        description: "Branch or tag to deploy"
+        required: true
+        default: "main"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target ref
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.target_ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm --prefix backend ci
+          npm --prefix frontend ci
+
+      - name: Run tests and build
+        run: |
+          npm --prefix backend test
+          npm --prefix frontend run lint
+          npm --prefix frontend run build
+
+      - name: Deployment note
+        run: |
+          echo "Validated ref: ${{ github.event.inputs.target_ref }}"
+          echo "Next step: on VM run ./scripts/deploy.sh ${{ github.event.inputs.target_ref }}"

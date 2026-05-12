@@ -1,0 +1,1296 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-05-12T13:52:35.229Z",
+  "records": [
+    {
+      "id": "term-ads-acropolis-dynamic-scheduling-drs-distributed-resource-scheduler-29f00880f9",
+      "slug": "ads-acropolis-dynamic-scheduling-drs-distributed-resource-schedu",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "ADS (Acropolis Dynamic Scheduling)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "DRS (Distributed Resource Scheduler)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both technologies help maintain balanced cluster utilization and workload performance. Lifecycle State: approved Source: @ntnx-translation.md (117-121)",
+      "definition": "ADS automatically balances VM workloads across hosts. DRS dynamically optimizes VM placement based on resource consumption.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 11,
+          "endLine": 16
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.221Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.221Z",
+      "updatedAt": "2026-05-12T13:52:35.221Z",
+      "version": 1
+    },
+    {
+      "id": "term-ahv-acropolis-hypervisor-esxi-e7e4ffea97",
+      "slug": "ahv-acropolis-hypervisor-esxi",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "AHV (Acropolis Hypervisor)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "ESXi",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "Both run virtual machines directly on physical hardware as Type-1 hypervisors. AHV is bundled with Nutanix AOS licensing while ESXi is licensed separately in VMware environments. Lifecycle State: approved Source: @ntnx-translation.md (54-59)",
+      "definition": "AHV is Nutanix’s enterprise hypervisor built on KVM. ESXi is VMware’s enterprise bare-metal hypervisor.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 24,
+          "endLine": 29
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.222Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.222Z",
+      "updatedAt": "2026-05-12T13:52:35.222Z",
+      "version": 1
+    },
+    {
+      "id": "term-calm-aria-automation-vrealize-automation-1304141de0",
+      "slug": "calm-aria-automation-vrealize-automation",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Calm",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Aria Automation / vRealize Automation",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both support self-service provisioning and automation blueprints. Lifecycle State: approved Source: @ntnx-translation.md (336-340)",
+      "definition": "Calm automates application deployment, orchestration, and lifecycle management. Aria Automation provides infrastructure and application automation workflows.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 37,
+          "endLine": 42
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.222Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.222Z",
+      "updatedAt": "2026-05-12T13:52:35.222Z",
+      "version": 1
+    },
+    {
+      "id": "term-category-tag-9068d6c0af",
+      "slug": "category-tag",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Category",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Tag",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both technologies provide logical grouping and automation targeting capabilities. Nutanix Categories are more tightly integrated into policy-driven automation workflows within Prism Central. Lifecycle State: approved Source: @ntnx-translation.md (13-18)",
+      "definition": "Nutanix Categories are metadata key:value pairs used to organize workloads, automate operations, and apply policies such as security, DR, and automation workflows. VMware Tags are metadata labels attached to objects like VMs, datastores, and hosts for organization and policy grouping.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 50,
+          "endLine": 55
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.222Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.222Z",
+      "updatedAt": "2026-05-12T13:52:35.222Z",
+      "version": 1
+    },
+    {
+      "id": "term-cluster-vsphere-cluster-b8d356a736",
+      "slug": "cluster-vsphere-cluster",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Cluster",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "vSphere Cluster",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "Clusters enable workload mobility, HA, and resource balancing. Lifecycle State: approved Source: @ntnx-translation.md (80-83)",
+      "definition": "A logical grouping of hosts that share compute, storage, and networking resources.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 63,
+          "endLine": 68
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-cvm-controller-vm-vsan-storage-controller-concept-7fc31789e1",
+      "slug": "cvm-controller-vm-vsan-storage-controller-concept",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "CVM (Controller VM)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "vSAN Storage Controller Concept",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "VMware does not have a direct equivalent. CVMs are fundamental to Nutanix’s distributed storage architecture and handle I/O orchestration, replication, and storage optimization. Lifecycle State: approved Source: @ntnx-translation.md (104-108)",
+      "definition": "A Nutanix Controller VM is a dedicated VM running on every node that provides distributed storage and cluster services.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 76,
+          "endLine": 81
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-distributed-storage-fabric-dsf-vsan-70cd03f9a4",
+      "slug": "distributed-storage-fabric-dsf-vsan",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Distributed Storage Fabric (DSF)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "vSAN",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both platforms provide software-defined storage with resiliency and distributed data services. Lifecycle State: approved Source: @ntnx-translation.md (182-186)",
+      "definition": "DSF aggregates local disks into a distributed shared storage platform. vSAN pools local storage into a shared datastore.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 89,
+          "endLine": 94
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-erasure-coding-raid-5-6-erasure-coding-7a33732b1f",
+      "slug": "erasure-coding-raid-5-6-erasure-coding",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Erasure Coding",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "RAID-5/6 Erasure Coding",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both platforms reduce storage overhead compared to full replication models. Lifecycle State: approved Source: @ntnx-translation.md (268-271)",
+      "definition": "Erasure coding provides storage efficiency while maintaining resiliency through parity calculations.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 102,
+          "endLine": 107
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-flow-network-security-nsx-distributed-firewall-3bbed099d6",
+      "slug": "flow-network-security-nsx-distributed-firewall",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Flow Network Security",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "NSX Distributed Firewall",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both technologies enforce east-west traffic security policies inside the data center. Lifecycle State: approved Source: @ntnx-translation.md (282-286)",
+      "definition": "Nutanix Flow provides microsegmentation and VM-level security controls. VMware NSX provides software-defined networking and distributed firewall capabilities.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 115,
+          "endLine": 120
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-ha-vmware-ha-459c306ebb",
+      "slug": "ha-vmware-ha",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "HA",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "VMware HA",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both platforms provide VM failover and resiliency capabilities to minimize downtime. Lifecycle State: approved Source: @ntnx-translation.md (130-133)",
+      "definition": "HA automatically restarts workloads when host failures occur.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 128,
+          "endLine": 133
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-host-esxi-host-d05b01be04",
+      "slug": "host-esxi-host",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Host",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "ESXi Host",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "Hosts provide CPU, memory, local disks, and networking resources for VMs. Lifecycle State: approved Source: @ntnx-translation.md (92-95)",
+      "definition": "A physical server contributing compute and storage resources to a virtualization cluster.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 141,
+          "endLine": 146
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.223Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.223Z",
+      "updatedAt": "2026-05-12T13:52:35.223Z",
+      "version": 1
+    },
+    {
+      "id": "term-live-migration-vmotion-a0769357a3",
+      "slug": "live-migration-vmotion",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Live Migration",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "vMotion",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Enables maintenance operations and workload balancing without application interruption. Lifecycle State: approved Source: @ntnx-translation.md (142-145)",
+      "definition": "Live migration moves running VMs between hosts with minimum downtime.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 154,
+          "endLine": 159
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-nutanix-disaster-recovery-leap-site-recovery-manager-srm-934e9d8bb2",
+      "slug": "nutanix-disaster-recovery-leap-site-recovery-manager-srm",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Nutanix Disaster Recovery / Leap",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Site Recovery Manager (SRM)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both platforms provide orchestration for business continuity and site recovery. Lifecycle State: approved Source: @ntnx-translation.md (309-313)",
+      "definition": "Nutanix DR automates replication, failover, and recovery orchestration. VMware SRM automates disaster recovery workflows and failover operations.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 167,
+          "endLine": 172
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-nutanix-files-vmware-file-services-37e6f7b349",
+      "slug": "nutanix-files-vmware-file-services",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Nutanix Files",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "VMware File Services",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both enable enterprise file sharing and NAS-style services. Lifecycle State: approved Source: @ntnx-translation.md (231-235)",
+      "definition": "Nutanix Files delivers SMB and NFS file services. VMware File Services provides integrated file-sharing capabilities on vSAN.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 180,
+          "endLine": 185
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-nutanix-kubernetes-platform-nkp-tanzu-kubernetes-grid-tkg-587865e7c1",
+      "slug": "nutanix-kubernetes-platform-nkp-tanzu-kubernetes-grid-tkg",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Nutanix Kubernetes Platform (NKP)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Tanzu Kubernetes Grid (TKG)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both simplify Kubernetes lifecycle management across hybrid environments. Lifecycle State: approved Source: @ntnx-translation.md (376-379)",
+      "definition": "Enterprise Kubernetes management platforms for deploying and operating containerized workloads.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 193,
+          "endLine": 198
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-nutanix-move-hcx-vmware-converter-2bed1c150e",
+      "slug": "nutanix-move-hcx-vmware-converter",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Nutanix Move",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "HCX / VMware Converter",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "These tools simplify infrastructure modernization and platform transitions. Lifecycle State: approved Source: @ntnx-translation.md (390-394)",
+      "definition": "Nutanix Move migrates workloads into Nutanix environments with minimal downtime. VMware HCX and Converter support workload mobility and migration operations.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 206,
+          "endLine": 211
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-nutanix-objects-s3-compatible-object-storage-2b58901f35",
+      "slug": "nutanix-objects-s3-compatible-object-storage",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Nutanix Objects",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "S3-Compatible Object Storage",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "VMware environments typically integrate external S3-compatible object platforms rather than providing native equivalents. Lifecycle State: approved Source: @ntnx-translation.md (244-247)",
+      "definition": "Nutanix Objects provides scalable S3-compatible object storage services.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 219,
+          "endLine": 224
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-nutanix-volumes-iscsi-datastore-block-storage-c1fe6df731",
+      "slug": "nutanix-volumes-iscsi-datastore-block-storage",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Nutanix Volumes",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "iSCSI Datastore / Block Storage",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "Comparable to VMware block-storage-based datastore consumption models. Lifecycle State: approved Source: @ntnx-translation.md (219-222)",
+      "definition": "Nutanix Volumes provides scalable block storage services to applications and external workloads.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 232,
+          "endLine": 237
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-open-vswitch-vswitch-vds-21e758e2c1",
+      "slug": "open-vswitch-vswitch-vds",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Open vSwitch",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "vSwitch / vDS",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Open vSwitch in AHV serves a role similar to VMware standard and distributed virtual switches. Lifecycle State: approved Source: @ntnx-translation.md (295-298)",
+      "definition": "Virtual switches provide software-defined networking connectivity between VMs and physical networks.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 245,
+          "endLine": 250
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-prism-central-vcenter-server-81264f2799",
+      "slug": "prism-central-vcenter-server",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Prism Central",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "vCenter Server",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both provide centralized inventory management, monitoring, lifecycle operations, and policy administration across clusters. Prism Central additionally integrates native Nutanix services such as Flow, Calm, and X-Play. Lifecycle State: approved Source: @ntnx-translation.md (27-32)",
+      "definition": "Prism Central is Nutanix’s centralized management plane for multiple clusters, automation, analytics, governance, and operations. vCenter Server is VMware’s centralized management platform for vSphere environments.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 258,
+          "endLine": 263
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-prism-element-esxi-host-cluster-management-08ec4cbf04",
+      "slug": "prism-element-esxi-host-cluster-management",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Prism Element",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "ESXi Host / Cluster Management",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "Prism Element is more cluster-centric, while VMware distributes management responsibilities between ESXi and vCenter. Lifecycle State: approved Source: @ntnx-translation.md (41-45)",
+      "definition": "Prism Element manages an individual Nutanix cluster and provides operational visibility into compute, storage, and VM resources. VMware cluster management is generally handled through vCenter and ESXi host interfaces.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 271,
+          "endLine": 276
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.224Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.224Z",
+      "updatedAt": "2026-05-12T13:52:35.224Z",
+      "version": 1
+    },
+    {
+      "id": "term-prism-pro-intelligent-operations-aria-operations-vrealize-operations-2090e84e4a",
+      "slug": "prism-pro-intelligent-operations-aria-operations-vrealize-operat",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Prism Pro / Intelligent Operations",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Aria Operations / vRealize Operations",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both provide operational intelligence and proactive infrastructure recommendations. Lifecycle State: approved Source: @ntnx-translation.md (362-365)",
+      "definition": "Analytics and monitoring platforms for infrastructure health, capacity, and optimization.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 284,
+          "endLine": 289
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.225Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.225Z",
+      "updatedAt": "2026-05-12T13:52:35.225Z",
+      "version": 1
+    },
+    {
+      "id": "term-protection-policy-vm-protection-policy-44b3985037",
+      "slug": "protection-policy-vm-protection-policy",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Protection Policy",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "VM Protection Policy",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Used to automate resiliency and recovery requirements. Lifecycle State: approved Source: @ntnx-translation.md (322-325)",
+      "definition": "Policies defining backup schedules, replication, and retention behavior for workloads.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 297,
+          "endLine": 302
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.225Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.225Z",
+      "updatedAt": "2026-05-12T13:52:35.225Z",
+      "version": 1
+    },
+    {
+      "id": "term-replication-factor-rf2-rf3-ftt-failures-to-tolerate-40f75d8af6",
+      "slug": "replication-factor-rf2-rf3-ftt-failures-to-tolerate",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Replication Factor (RF2/RF3)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "FTT (Failures To Tolerate)",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both technologies protect against node or disk failures by maintaining redundant data copies. Lifecycle State: approved Source: @ntnx-translation.md (256-259)",
+      "definition": "Replication policies determine how many copies of data are maintained for resiliency.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 310,
+          "endLine": 315
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    },
+    {
+      "id": "term-storage-container-datastore-12c72aa4d3",
+      "slug": "storage-container-datastore",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Storage Container",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Datastore",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Nutanix containers additionally control features such as compression, deduplication, and replication policies. Lifecycle State: approved Source: @ntnx-translation.md (156-160)",
+      "definition": "Nutanix Storage Containers logically organize storage capacity and define storage efficiency policies. VMware Datastores provide logical storage presentation to hypervisors and VMs.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 323,
+          "endLine": 328
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    },
+    {
+      "id": "term-storage-pool-disk-group-storage-pool-3f673a55f1",
+      "slug": "storage-pool-disk-group-storage-pool",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Storage Pool",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Disk Group / Storage Pool",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Storage pools provide the foundational capacity layer for containers and datastores. Lifecycle State: approved Source: @ntnx-translation.md (195-198)",
+      "definition": "A storage pool aggregates physical disks into a consumable storage resource layer.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 336,
+          "endLine": 341
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    },
+    {
+      "id": "term-vdisk-vmdk-2faf795d37",
+      "slug": "vdisk-vmdk",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "vDisk",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "VMDK",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Nutanix vDisks and VMware VMDKs both store VM operating systems and application data. Lifecycle State: approved Source: @ntnx-translation.md (207-210)",
+      "definition": "A virtual disk is the storage abstraction attached to a VM.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 349,
+          "endLine": 354
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    },
+    {
+      "id": "term-vm-virtual-machine-3cbdccb6d8",
+      "slug": "vm-virtual-machine",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "VM",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Virtual Machine",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "The VM abstraction is functionally similar across Nutanix AHV and VMware ESXi environments. Lifecycle State: approved Source: @ntnx-translation.md (68-71)",
+      "definition": "A software-defined compute instance running guest operating systems and applications.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 362,
+          "endLine": 367
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    },
+    {
+      "id": "term-volume-group-rdm-vvol-concept-8b1a13ed41",
+      "slug": "volume-group-rdm-vvol-concept",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "Volume Group",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "RDM / vVol Concept",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "closest",
+      "explanation": "These technologies support applications requiring specialized block storage configurations. Lifecycle State: approved Source: @ntnx-translation.md (169-173)",
+      "definition": "Nutanix Volume Groups provide block storage access to workloads. VMware RDMs and vVols provide direct or granular storage presentation.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 375,
+          "endLine": 380
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    },
+    {
+      "id": "term-x-play-aria-orchestrator-vrealize-orchestrator-31e6637412",
+      "slug": "x-play-aria-orchestrator-vrealize-orchestrator",
+      "sourceSide": "nutanix",
+      "state": "approved",
+      "nutanixTerms": [
+        {
+          "name": "X-Play",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "vmwareTerms": [
+        {
+          "name": "Aria Orchestrator / vRealize Orchestrator",
+          "aliases": [],
+          "acronyms": []
+        }
+      ],
+      "equivalenceType": "partial",
+      "explanation": "Both platforms reduce manual operational overhead through workflow automation. Lifecycle State: approved Source: @ntnx-translation.md (349-353)",
+      "definition": "X-Play provides event-driven automation and remediation workflows. VMware Orchestrator automates operational and infrastructure tasks.",
+      "tags": [
+        "imported",
+        "markdown"
+      ],
+      "sourceRefs": [
+        {
+          "path": "@ntnx-translation.md",
+          "startLine": 388,
+          "endLine": 393
+        }
+      ],
+      "owner": "unassigned",
+      "review": {
+        "reviewedBy": "unassigned",
+        "reviewedAt": "2026-05-12T13:52:35.226Z",
+        "notes": "Migrated from docs/ntnx-translation.md"
+      },
+      "createdAt": "2026-05-12T13:52:35.226Z",
+      "updatedAt": "2026-05-12T13:52:35.226Z",
+      "version": 1
+    }
+  ]
+}

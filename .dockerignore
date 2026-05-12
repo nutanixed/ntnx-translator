@@ -1,0 +1,11 @@
+node_modules
+**/node_modules
+.git
+.next
+frontend/.next
+frontend/out
+dist
+build
+coverage
+*.log
+data/raw/uploads
