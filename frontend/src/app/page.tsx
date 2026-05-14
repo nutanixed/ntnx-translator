@@ -22,6 +22,27 @@ import { Separator } from "@/components/ui/separator";
 
 const CONFIGURED_API_BASE = process.env.NEXT_PUBLIC_API_BASE?.trim() || "";
 
+function debugLog(hypothesisId: string, location: string, message: string, data: Record<string, unknown>) {
+  // #region agent log
+  fetch("http://127.0.0.1:7478/ingest/1f81b619-cb46-4d3e-afe6-474efdacd3ff", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Debug-Session-Id": "f9a326",
+    },
+    body: JSON.stringify({
+      sessionId: "f9a326",
+      runId: "debuglog-restore-check",
+      hypothesisId,
+      location,
+      message,
+      data,
+      timestamp: Date.now(),
+    }),
+  }).catch(() => {});
+  // #endregion
+}
+
 function resolveApiBase() {
   if (CONFIGURED_API_BASE) return CONFIGURED_API_BASE;
   if (typeof window !== "undefined") {
@@ -93,6 +114,13 @@ export default function Home() {
 
   const submitSearch = () => {
     const trimmed = query.trim();
+    // #region agent log
+    debugLog("M1", "frontend/src/app/page.tsx:submitSearch", "Submit search invoked", {
+      runId: "mobile-interaction-check",
+      trimmedLength: trimmed.length,
+      activeSidebarView,
+    });
+    // #endregion
     setActiveSidebarView("search");
     setSubmittedQuery(trimmed);
     if (!trimmed) {
@@ -104,6 +132,14 @@ export default function Home() {
   };
 
   const handleSelectTerm = (termId: string) => {
+    // #region agent log
+    debugLog("M2", "frontend/src/app/page.tsx:handleSelectTerm", "Result selected", {
+      runId: "mobile-interaction-check",
+      termId,
+      isNarrowViewport:
+        typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false,
+    });
+    // #endregion
     setSelectedId(termId);
     if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) {
       document.getElementById("term-details")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -122,6 +158,15 @@ export default function Home() {
       const res = await fetch(
         `${apiBase}/api/search?q=${encodeURIComponent(submittedQuery)}&direction=${direction}`,
       );
+      // #region agent log
+      debugLog("M3", "frontend/src/app/page.tsx:runSearch:response", "Search response status", {
+        runId: "mobile-interaction-check",
+        submittedQuery,
+        direction,
+        status: res.status,
+        ok: res.ok,
+      });
+      // #endregion
       if (!res.ok) {
         setResults([]);
         setSelectedId(null);
