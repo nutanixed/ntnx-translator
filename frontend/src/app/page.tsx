@@ -22,27 +22,6 @@ import { Separator } from "@/components/ui/separator";
 
 const CONFIGURED_API_BASE = process.env.NEXT_PUBLIC_API_BASE?.trim() || "";
 
-function debugLog(hypothesisId: string, location: string, message: string, data: Record<string, unknown>) {
-  // #region agent log
-  fetch("http://127.0.0.1:7478/ingest/1f81b619-cb46-4d3e-afe6-474efdacd3ff", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Debug-Session-Id": "f9a326",
-    },
-    body: JSON.stringify({
-      sessionId: "f9a326",
-      runId: "debuglog-restore-check",
-      hypothesisId,
-      location,
-      message,
-      data,
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
-}
-
 function resolveApiBase() {
   if (CONFIGURED_API_BASE) return CONFIGURED_API_BASE;
   if (typeof window !== "undefined") {
@@ -114,13 +93,6 @@ export default function Home() {
 
   const submitSearch = () => {
     const trimmed = query.trim();
-    // #region agent log
-    debugLog("M1", "frontend/src/app/page.tsx:submitSearch", "Submit search invoked", {
-      runId: "mobile-interaction-check",
-      trimmedLength: trimmed.length,
-      activeSidebarView,
-    });
-    // #endregion
     setActiveSidebarView("search");
     setSubmittedQuery(trimmed);
     if (!trimmed) {
@@ -132,14 +104,6 @@ export default function Home() {
   };
 
   const handleSelectTerm = (termId: string) => {
-    // #region agent log
-    debugLog("M2", "frontend/src/app/page.tsx:handleSelectTerm", "Result selected", {
-      runId: "mobile-interaction-check",
-      termId,
-      isNarrowViewport:
-        typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false,
-    });
-    // #endregion
     setSelectedId(termId);
     if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) {
       document.getElementById("term-details")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -158,15 +122,6 @@ export default function Home() {
       const res = await fetch(
         `${apiBase}/api/search?q=${encodeURIComponent(submittedQuery)}&direction=${direction}`,
       );
-      // #region agent log
-      debugLog("M3", "frontend/src/app/page.tsx:runSearch:response", "Search response status", {
-        runId: "mobile-interaction-check",
-        submittedQuery,
-        direction,
-        status: res.status,
-        ok: res.ok,
-      });
-      // #endregion
       if (!res.ok) {
         setResults([]);
         setSelectedId(null);
@@ -224,22 +179,6 @@ export default function Home() {
             )
         : results
   ).slice(0, 10);
-
-  // #region agent log
-  debugLog("H2", "frontend/src/app/page.tsx:afterFeaturedResults", "Home render state snapshot", {
-    runContext: "pre-fix-build-investigation",
-    hasSelectedTerm: Boolean(selectedTerm),
-    selectedId,
-    resultsCount: results.length,
-    activeSidebarView,
-  });
-  // #endregion
-  // #region agent log
-  debugLog("H1", "frontend/src/app/page.tsx:termDetailsGlassPanel", "Term Details panel configured with id prop", {
-    runContext: "pre-fix-build-investigation",
-    passesIdProp: true,
-  });
-  // #endregion
 
   return (
     <div
@@ -361,7 +300,13 @@ export default function Home() {
                 isDark ? "border-white/20 bg-white/10" : "border-[#DBCDF2] bg-white/85"
               }`}
             >
-              <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
+              <form
+                className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  submitSearch();
+                }}
+              >
                 <Search className="ml-2 mt-1 h-5 w-5 shrink-0 text-[#B59BC6] sm:mt-0" />
                 <Input
                   value={query}
@@ -391,12 +336,13 @@ export default function Home() {
                   }`}
                 />
                 <Button
+                  type="button"
                   className="h-11 w-full rounded-full bg-[#7855FA] px-5 text-white hover:bg-[#6946EE] sm:h-10 sm:w-auto"
                   onClick={submitSearch}
                 >
                   Enter
                 </Button>
-              </div>
+              </form>
             </div>
             {searchError ? (
               <p className={`mt-2 text-xs ${isDark ? "text-red-300" : "text-red-700"}`}>{searchError}</p>

@@ -27,6 +27,12 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
