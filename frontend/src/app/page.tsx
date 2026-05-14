@@ -427,7 +427,6 @@ export default function Home() {
                 >
                   <Card className="rounded-2xl border-white/15 bg-white/5 p-5">
                     <p className="text-xs uppercase tracking-wider text-[#B59BC6]">Term Pair</p>
-                    <h3 className={`mt-1 text-xl font-semibold ${isDark ? "text-white" : "text-black"}`}>{selectedTerm.termId}</h3>
                     <p className={`mt-3 text-sm ${isDark ? "text-white/80" : "text-black/80"}`}>
                       <span className={`font-semibold ${isDark ? "text-white" : "text-black"}`}>VMware: </span>
                       {selectedTerm.vmwareTerms.map((item) => item.name).join(", ")}
