@@ -20,28 +20,15 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE?.trim() || "http://localhost:4000";
+const CONFIGURED_API_BASE = process.env.NEXT_PUBLIC_API_BASE?.trim() || "";
 
-function debugLog(hypothesisId: string, location: string, message: string, data: Record<string, unknown>) {
-  // #region agent log
-  fetch("http://127.0.0.1:7478/ingest/1f81b619-cb46-4d3e-afe6-474efdacd3ff", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Debug-Session-Id": "f9a326",
-    },
-    body: JSON.stringify({
-      sessionId: "f9a326",
-      runId: "source-context-investigation",
-      hypothesisId,
-      location,
-      message,
-      data,
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
+function resolveApiBase() {
+  if (CONFIGURED_API_BASE) return CONFIGURED_API_BASE;
+  if (typeof window !== "undefined") {
+    const { protocol, hostname } = window.location;
+    return `${protocol}//${hostname}:4000`;
+  }
+  return "http://localhost:4000";
 }
 
 type Direction = "both" | "nutanixToVmware" | "vmwareToNutanix";
@@ -101,6 +88,7 @@ export default function Home() {
   const [activeSidebarView, setActiveSidebarView] = useState<
     "search" | "favorites" | "recent"
   >("search");
+  const [searchError, setSearchError] = useState<string | null>(null);
   const isDark = theme === "dark";
 
   const submitSearch = () => {
@@ -108,6 +96,7 @@ export default function Home() {
     setActiveSidebarView("search");
     setSubmittedQuery(trimmed);
     if (!trimmed) {
+      setSearchError(null);
       setResults([]);
       setSelectedId(null);
       setSelectedTerm(null);
@@ -128,9 +117,18 @@ export default function Home() {
   useEffect(() => {
     if (!submittedQuery.trim()) return;
     async function runSearch() {
+      setSearchError(null);
+      const apiBase = resolveApiBase();
       const res = await fetch(
-        `${API_BASE}/api/search?q=${encodeURIComponent(submittedQuery)}&direction=${direction}`,
+        `${apiBase}/api/search?q=${encodeURIComponent(submittedQuery)}&direction=${direction}`,
       );
+      if (!res.ok) {
+        setResults([]);
+        setSelectedId(null);
+        setSelectedTerm(null);
+        setSearchError("Search endpoint is unavailable. Check backend connectivity.");
+        return;
+      }
       const data = await res.json();
       setResults(data.results || []);
       if (data.results?.[0]) {
@@ -140,24 +138,20 @@ export default function Home() {
         setSelectedTerm(null);
       }
     }
-    void runSearch();
+    void runSearch().catch(() => {
+      setResults([]);
+      setSelectedId(null);
+      setSelectedTerm(null);
+      setSearchError("Unable to fetch search results right now.");
+    });
   }, [submittedQuery, direction]);
 
   useEffect(() => {
     if (!selectedId) return;
     async function loadDetails() {
-      const res = await fetch(`${API_BASE}/api/terms/${selectedId}`);
+      const apiBase = resolveApiBase();
+      const res = await fetch(`${apiBase}/api/terms/${selectedId}`);
       const data = await res.json();
-      // #region agent log
-      debugLog("H3", "frontend/src/app/page.tsx:loadDetails", "Term details response received", {
-        selectedId,
-        status: res.status,
-        hasSourceRefField: Boolean(data && typeof data === "object" && "sourceRef" in data),
-        hasSourceFileField: Boolean(data && typeof data === "object" && "sourceFile" in data),
-        availableKeys:
-          data && typeof data === "object" ? Object.keys(data as Record<string, unknown>) : [],
-      });
-      // #endregion
       if (res.ok) {
         setSelectedTerm(data);
         if (selectedId) {
@@ -330,6 +324,8 @@ export default function Home() {
                     const nextValue = event.target.value;
                     setQuery(nextValue);
                     if (!nextValue.trim()) {
+                      setActiveSidebarView("search");
+                      setSearchError(null);
                       setSubmittedQuery("");
                       setResults([]);
                       setSelectedId(null);
@@ -357,6 +353,9 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+            {searchError ? (
+              <p className={`mt-2 text-xs ${isDark ? "text-red-300" : "text-red-700"}`}>{searchError}</p>
+            ) : null}
 
             <div className="mt-4 flex flex-wrap gap-2">
               {([
