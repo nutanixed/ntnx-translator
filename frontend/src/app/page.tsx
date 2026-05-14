@@ -66,13 +66,16 @@ function GlassPanel({
   isDark,
   className,
   children,
+  id,
 }: {
   isDark: boolean;
   className?: string;
   children: React.ReactNode;
+  id?: string;
 }) {
   return (
     <div
+      id={id}
       className={`rounded-3xl border backdrop-blur-xl ${
         isDark
           ? "border-white/15 bg-white/[0.04] shadow-[0_20px_80px_rgba(6,6,14,0.5)]"
@@ -99,6 +102,24 @@ export default function Home() {
     "search" | "favorites" | "recent"
   >("search");
   const isDark = theme === "dark";
+
+  const submitSearch = () => {
+    const trimmed = query.trim();
+    setActiveSidebarView("search");
+    setSubmittedQuery(trimmed);
+    if (!trimmed) {
+      setResults([]);
+      setSelectedId(null);
+      setSelectedTerm(null);
+    }
+  };
+
+  const handleSelectTerm = (termId: string) => {
+    setSelectedId(termId);
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) {
+      document.getElementById("term-details")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -164,6 +185,22 @@ export default function Home() {
             )
         : results
   ).slice(0, 10);
+
+  // #region agent log
+  debugLog("H2", "frontend/src/app/page.tsx:afterFeaturedResults", "Home render state snapshot", {
+    runContext: "pre-fix-build-investigation",
+    hasSelectedTerm: Boolean(selectedTerm),
+    selectedId,
+    resultsCount: results.length,
+    activeSidebarView,
+  });
+  // #endregion
+  // #region agent log
+  debugLog("H1", "frontend/src/app/page.tsx:termDetailsGlassPanel", "Term Details panel configured with id prop", {
+    runContext: "pre-fix-build-investigation",
+    passesIdProp: true,
+  });
+  // #endregion
 
   return (
     <div
@@ -285,8 +322,8 @@ export default function Home() {
                 isDark ? "border-white/20 bg-white/10" : "border-[#DBCDF2] bg-white/85"
               }`}
             >
-              <div className="flex items-center gap-3">
-                <Search className="ml-2 h-5 w-5 text-[#B59BC6]" />
+              <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
+                <Search className="ml-2 mt-1 h-5 w-5 shrink-0 text-[#B59BC6] sm:mt-0" />
                 <Input
                   value={query}
                   onChange={(event) => {
@@ -301,19 +338,20 @@ export default function Home() {
                   }}
                   onKeyDown={(event) => {
                     if (event.key === "Enter") {
-                      setSubmittedQuery(query.trim());
+                      event.preventDefault();
+                      submitSearch();
                     }
                   }}
                   placeholder="Type VMware or Nutanix terminology..."
-                  className={`border-none bg-transparent text-base focus-visible:ring-0 ${
+                  className={`w-full border-none bg-transparent text-base focus-visible:ring-0 ${
                     isDark
                       ? "text-white placeholder:text-white/60"
                       : "text-[#2D1E45] placeholder:text-[#522E91]/55"
                   }`}
                 />
                 <Button
-                  className="rounded-full bg-[#7855FA] px-5 text-white hover:bg-[#6946EE]"
-                  onClick={() => setSubmittedQuery(query.trim())}
+                  className="h-11 w-full rounded-full bg-[#7855FA] px-5 text-white hover:bg-[#6946EE] sm:h-10 sm:w-auto"
+                  onClick={submitSearch}
                 >
                   Enter
                 </Button>
@@ -329,7 +367,7 @@ export default function Home() {
                 <Button
                   key={item.id}
                   variant="ghost"
-                  className={`rounded-full border px-4 ${
+                  className={`w-full justify-center rounded-full border px-4 sm:w-auto ${
                     direction === item.id
                       ? isDark
                         ? "border-[#7855FA]/60 bg-[#7855FA]/35 text-white"
@@ -349,7 +387,7 @@ export default function Home() {
           <div className="grid gap-4 xl:grid-cols-[1.2fr_1fr]">
             <GlassPanel isDark={isDark} className="p-4 md:p-5">
               <div className="mb-3 flex items-center justify-between">
-                <h2 className="text-sm font-semibold uppercase tracking-wider text-white/75">
+                <h2 className={`text-sm font-semibold uppercase tracking-wider ${isDark ? "text-white/75" : "text-black/75"}`}>
                   {/** text color controlled by parent mode */}
                   {activeSidebarView === "favorites"
                     ? "Favorites"
@@ -378,11 +416,15 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       whileHover={{ y: -2 }}
-                      onClick={() => setSelectedId(item.termId)}
+                      onClick={() => handleSelectTerm(item.termId)}
                       className={`w-full rounded-2xl border p-4 text-left transition ${
                         selectedId === item.termId
-                          ? "border-[#7855FA]/60 bg-[#7855FA]/25"
-                          : "border-white/15 bg-white/5 hover:bg-white/10"
+                          ? isDark
+                            ? "border-[#7855FA]/60 bg-[#7855FA]/25"
+                            : "border-[#7855FA]/55 bg-[#EDE6FF]"
+                          : isDark
+                            ? "border-white/15 bg-white/5 hover:bg-white/10"
+                            : "border-black/10 bg-white hover:bg-[#F7F3FF]"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -390,14 +432,14 @@ export default function Home() {
                           <p className="text-xs uppercase tracking-wider text-[#B59BC6]">
                             VMware
                           </p>
-                          <p className={`text-base font-semibold ${isDark ? "text-white" : "text-black"}`}>{item.vmwareTerms[0]?.name}</p>
+                          <p className={`text-base font-semibold leading-snug break-words ${isDark ? "text-white" : "text-black"}`}>{item.vmwareTerms[0]?.name}</p>
                         </div>
-                        <ArrowRightLeft className="mt-1 h-4 w-4 text-white/50" />
+                        <ArrowRightLeft className={`mt-1 h-4 w-4 ${isDark ? "text-white/50" : "text-black/50"}`} />
                         <div>
                           <p className="text-xs uppercase tracking-wider text-[#B59BC6]">
                             Nutanix
                           </p>
-                          <p className={`text-base font-semibold ${isDark ? "text-white" : "text-black"}`}>{item.nutanixTerms[0]?.name}</p>
+                          <p className={`text-base font-semibold leading-snug break-words ${isDark ? "text-white" : "text-black"}`}>{item.nutanixTerms[0]?.name}</p>
                         </div>
                       </div>
                       <div className="mt-3 flex items-center gap-2">
@@ -410,8 +452,8 @@ export default function Home() {
               </div>
             </GlassPanel>
 
-            <GlassPanel isDark={isDark} className="p-4 md:p-5">
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-white/75">
+            <GlassPanel isDark={isDark} className="p-4 md:p-5" id="term-details">
+              <h2 className={`mb-3 text-sm font-semibold uppercase tracking-wider ${isDark ? "text-white/75" : "text-black/75"}`}>
                 Term Details
               </h2>
               {!selectedTerm ? (
@@ -425,7 +467,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   className="space-y-4"
                 >
-                  <Card className="rounded-2xl border-white/15 bg-white/5 p-5">
+                  <Card className={`rounded-2xl p-5 ${isDark ? "border-white/15 bg-white/5" : "border-black/10 bg-white"}`}>
                     <p className="text-xs uppercase tracking-wider text-[#B59BC6]">Term Pair</p>
                     <p className={`mt-3 text-sm ${isDark ? "text-white/80" : "text-black/80"}`}>
                       <span className={`font-semibold ${isDark ? "text-white" : "text-black"}`}>VMware: </span>
@@ -442,7 +484,7 @@ export default function Home() {
                     </div>
                   </Card>
 
-                  <Card className="rounded-2xl border-white/15 bg-white/5 p-5">
+                  <Card className={`rounded-2xl p-5 ${isDark ? "border-white/15 bg-white/5" : "border-black/10 bg-white"}`}>
                     <p className="text-xs uppercase tracking-wider text-[#B59BC6]">Definition</p>
                     <p className={`mt-2 text-sm leading-6 ${isDark ? "text-white/85" : "text-black"}`}>{selectedTerm.definition}</p>
                     <p className={`mt-3 text-xs ${isDark ? "text-white/70" : "text-black/70"}`}>
@@ -450,7 +492,7 @@ export default function Home() {
                     </p>
                   </Card>
 
-                  <Card className="rounded-2xl border-white/15 bg-white/5 p-5">
+                  <Card className={`rounded-2xl p-5 ${isDark ? "border-white/15 bg-white/5" : "border-black/10 bg-white"}`}>
                     <p className="text-xs uppercase tracking-wider text-[#B59BC6]">Explanation</p>
                     <p className={`mt-2 text-sm leading-6 ${isDark ? "text-white/85" : "text-black"}`}>
                       {selectedTerm.explanation}
