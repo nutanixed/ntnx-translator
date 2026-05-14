@@ -26,6 +26,27 @@ const upload = multer({
   limits: { fileSize: 20 * 1024 * 1024 },
 });
 
+function debugLog(hypothesisId, location, message, data) {
+  // #region agent log
+  fetch("http://127.0.0.1:7478/ingest/1f81b619-cb46-4d3e-afe6-474efdacd3ff", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Debug-Session-Id": "f9a326",
+    },
+    body: JSON.stringify({
+      sessionId: "f9a326",
+      runId: "mobile-fetch-backend-trace",
+      hypothesisId,
+      location,
+      message,
+      data,
+      timestamp: Date.now(),
+    }),
+  }).catch(() => {});
+  // #endregion
+}
+
 function inferSourceType(fileName = "", explicitSourceType = "") {
   const ext = path.extname(fileName).toLowerCase();
   if (ext === ".json") return "json";
@@ -140,6 +161,19 @@ app.get("/api/search", async (req, res) => {
   const direction = String(req.query.direction || "both");
   if (!q) return res.status(400).json({ error: "q is required" });
   const results = store.search.search(q, direction, 25);
+  // #region agent log
+  debugLog("BF1", "backend/src/server.js:/api/search", "Search API request served", {
+    q,
+    direction,
+    count: results.length,
+    host: req.headers.host || "",
+    origin: req.headers.origin || "",
+    referer: req.headers.referer || "",
+    userAgent: req.headers["user-agent"] || "",
+    forwardedFor: req.headers["x-forwarded-for"] || "",
+    remoteAddress: req.socket?.remoteAddress || "",
+  });
+  // #endregion
   res.json({ query: q, direction, count: results.length, results });
 });
 
