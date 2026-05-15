@@ -31,7 +31,6 @@ function resolveApiBase() {
   return "http://localhost:4000";
 }
 
-type Direction = "both" | "nutanixToVmware" | "vmwareToNutanix";
 type Mapping = {
   termId: string;
   sourceSide: "nutanix" | "vmware";
@@ -78,7 +77,6 @@ export default function Home() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
-  const [direction, setDirection] = useState<Direction>("both");
   const [results, setResults] = useState<Mapping[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedTerm, setSelectedTerm] = useState<Mapping | null>(null);
@@ -120,7 +118,7 @@ export default function Home() {
       setSearchError(null);
       const apiBase = resolveApiBase();
       const res = await fetch(
-        `${apiBase}/api/search?q=${encodeURIComponent(submittedQuery)}&direction=${direction}`,
+        `${apiBase}/api/search?q=${encodeURIComponent(submittedQuery)}`,
       );
       if (!res.ok) {
         setResults([]);
@@ -144,7 +142,7 @@ export default function Home() {
       setSelectedTerm(null);
       setSearchError("Unable to fetch search results right now.");
     });
-  }, [submittedQuery, direction]);
+  }, [submittedQuery]);
 
   useEffect(() => {
     if (!selectedId) return;
@@ -348,30 +346,6 @@ export default function Home() {
               <p className={`mt-2 text-xs ${isDark ? "text-red-300" : "text-red-700"}`}>{searchError}</p>
             ) : null}
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              {([
-                { id: "both", label: "Both" },
-                { id: "vmwareToNutanix", label: "VMware → Nutanix" },
-                { id: "nutanixToVmware", label: "Nutanix → VMware" },
-              ] as const).map((item) => (
-                <Button
-                  key={item.id}
-                  variant="ghost"
-                  className={`w-full justify-center rounded-full border px-4 sm:w-auto ${
-                    direction === item.id
-                      ? isDark
-                        ? "border-[#7855FA]/60 bg-[#7855FA]/35 text-white"
-                        : "border-[#7855FA]/50 bg-[#E3DBFF] text-black"
-                      : isDark
-                        ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
-                        : "border-[#DBCDF2] bg-white text-black hover:bg-[#F3EDF8]"
-                  }`}
-                  onClick={() => setDirection(item.id)}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </div>
           </GlassPanel>
 
           <div className="grid gap-4 xl:grid-cols-[1.2fr_1fr]">

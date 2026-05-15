@@ -77,11 +77,10 @@ function createSearchIndex(input) {
   });
 
   return {
-    search(query, direction = "both", limit = 20) {
+    search(query, limit = 20) {
       // #region agent log
       debugLog("S1-S4", "backend/src/search.js:search:entry", "Search request received", {
         query,
-        direction,
         limit,
       });
       // #endregion
@@ -90,7 +89,6 @@ function createSearchIndex(input) {
       // eslint-disable-next-line no-console
       console.log("[agent-debug][S1-S4] raw-ranking", {
         query,
-        direction,
         rawCount: raw.length,
         top3: raw.slice(0, 3).map((entry) => ({
           termId: entry.item.mapping.termId,
@@ -119,25 +117,12 @@ function createSearchIndex(input) {
         }
       );
       // #endregion
-      const filtered = raw.filter((entry) => {
-        if (direction === "both") return true;
-        if (direction === "nutanixToVmware") {
-          return entry.item.mapping.sourceSide === "nutanix";
-        }
-        if (direction === "vmwareToNutanix") {
-          return entry.item.mapping.sourceSide === "vmware";
-        }
-        return true;
-      });
-      const directionAware =
-        direction !== "both" && filtered.length === 0 ? raw : filtered;
       // #region agent log
       // eslint-disable-next-line no-console
       console.log("[agent-debug][S1-S4] filtered-ranking", {
         query,
-        direction,
-        filteredCount: directionAware.length,
-        top3: directionAware.slice(0, 3).map((entry) => ({
+        filteredCount: raw.length,
+        top3: raw.slice(0, 3).map((entry) => ({
           termId: entry.item.mapping.termId,
           score: entry.score,
           nutanix: entry.item.mapping.nutanixTerms?.[0]?.name || null,
@@ -152,8 +137,8 @@ function createSearchIndex(input) {
         "Search ranking after direction filter",
         {
           query,
-          filteredCount: directionAware.length,
-          top5: directionAware.slice(0, 5).map((entry) => ({
+          filteredCount: raw.length,
+          top5: raw.slice(0, 5).map((entry) => ({
             termId: entry.item.mapping.termId,
             score: entry.score,
             sourceSide: entry.item.mapping.sourceSide,
@@ -163,7 +148,7 @@ function createSearchIndex(input) {
         }
       );
       // #endregion
-      return directionAware.slice(0, limit).map((entry) => ({
+      return raw.slice(0, limit).map((entry) => ({
         score: entry.score,
         ...entry.item.mapping,
       }));

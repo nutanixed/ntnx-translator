@@ -158,13 +158,11 @@ app.get("/api/health", (_req, res) => {
 
 app.get("/api/search", async (req, res) => {
   const q = String(req.query.q || "").trim();
-  const direction = String(req.query.direction || "both");
   if (!q) return res.status(400).json({ error: "q is required" });
-  const results = store.search.search(q, direction, 25);
+  const results = store.search.search(q, 25);
   // #region agent log
   debugLog("BF1", "backend/src/server.js:/api/search", "Search API request served", {
     q,
-    direction,
     count: results.length,
     host: req.headers.host || "",
     origin: req.headers.origin || "",
@@ -174,7 +172,7 @@ app.get("/api/search", async (req, res) => {
     remoteAddress: req.socket?.remoteAddress || "",
   });
   // #endregion
-  res.json({ query: q, direction, count: results.length, results });
+  res.json({ query: q, count: results.length, results });
 });
 
 app.get("/api/terms/:id", async (req, res) => {
