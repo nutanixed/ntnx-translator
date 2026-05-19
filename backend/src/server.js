@@ -243,7 +243,7 @@ app.post("/api/compile", (_req, res) => {
 const port = Number(process.env.PORT || 4000);
 compile();
 store.load();
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
   // eslint-disable-next-line no-console
   console.log(`API running on http://localhost:${port}`);
 });
